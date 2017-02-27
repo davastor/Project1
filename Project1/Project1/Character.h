@@ -8,13 +8,15 @@ private:
 	string _name;
 	string _class;
 	static int _health;
-	int _mana;
+	static int _mana;
 	int _attack;
 
 
 public:
 	void setStats();
-	string getCharacterInfo();
+	string getName();
+	string getClass();
+	void subtractDamage(int damage);
 	int getHealth();
 	int getMana();
 	int getAttack();
