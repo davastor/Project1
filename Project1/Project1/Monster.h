@@ -5,7 +5,7 @@ using namespace std;
 class Monster
 {
 private:
-	string _monsters[3] = { "Minotaur", "Goblin", "Wyvern" };
+	int _monsterRand;
 	string _name;
 	int _health;
 	int _attack;

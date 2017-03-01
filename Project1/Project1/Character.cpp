@@ -11,34 +11,11 @@ string Character::getClass()
 	return _class;
 }
 
-int Character::useAbility(char choice)
+void Character::addMana(int mana)
 {
-	int x;
-
-	ability.setManaCost(choice);
-	_mana -= ability.getManaCost();
-
-	if (choice == 'C')
-		x = _attack*ability.getDamageMulti();
-	else if (choice == 'W')
-	{
-		ability.setHealAmt('W');
-		x = ability.getHealAmt();
-	}
-
-	else if (choice == 'M')
-		x = 200;
-	else
-	{
-		ability.setHealAmt('H');
-		x = ability.getHealAmt();
-	}
-
-
-	return x;
+	_mana += mana;
 }
 
-	
 void Character::restorePlayerMana()
 {
 	_mana += 30;
@@ -49,9 +26,19 @@ void Character::subtractDamage(int damage)
 	_health -= damage;
 }
 
+void Character::subtractMana(int manaCost)
+{
+	_mana -= manaCost;
+}
+
 void Character::addHealth(int heal)
 {
 	_health += heal;
+}
+
+void Character::buffAttack(int buff)
+{
+	_attack += buff;
 }
 
 int Character::getHealth()

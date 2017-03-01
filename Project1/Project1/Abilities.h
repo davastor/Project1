@@ -5,19 +5,17 @@ using namespace std;
 class Abilities
 {
 private:
-	int _damageMulti;
+	int _damageMulti = 3;
+	int _abilityDamage;
 	int _healAmt;
 	int _manaCost;
 	string _class;
 
 public:
-	void setDamageMulti();
-	int getDamageMulti();
-	void setManaCost(char choice);
+	int getAbilityDamage(char choice, int attack);
 	int getManaCost();
-	void setHealAmt(char choice);
 	int getHealAmt();
-	Abilities();
+	Abilities(char choice, int attack);
 	~Abilities();
 };
 

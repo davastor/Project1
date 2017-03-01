@@ -1,39 +1,9 @@
 #include "Abilities.h"
 
 
-void Abilities::setDamageMulti()
-{		
-	_damageMulti = 2;
-}
-
-int Abilities::getDamageMulti()
+int Abilities::getAbilityDamage(char choice, int attack)
 {
-	return _damageMulti;
-}
-
-void Abilities::setManaCost(char choice)
-{
-	if (choice == 'C')
-		_manaCost = 25;
-	else if (choice == 'W')
-		_manaCost = 20;
-	else if (choice == 'M')
-		_manaCost == 100;
-	else
-		_manaCost = 50;
-}
-
-int Abilities::getManaCost()
-{
-	return _manaCost;
-}
-
-void Abilities::setHealAmt(char choice)
-{
-	if (choice == 'W')
-		_healAmt = 25;
-	else
-		_healAmt = 80;
+	return _abilityDamage;
 }
 
 int Abilities::getHealAmt()
@@ -41,13 +11,37 @@ int Abilities::getHealAmt()
 	return _healAmt;
 }
 
-
-Abilities::Abilities()
+int Abilities::getManaCost()
 {
-	setDamageMulti();
-	
+	return _manaCost;
 }
 
+
+
+Abilities::Abilities(char choice, int attack)
+{
+	if (choice == 'C')
+	{
+		_abilityDamage = attack*_damageMulti;
+		_manaCost = 25;
+	}
+		
+	else if (choice == 'W')
+	{
+		_healAmt = 50;
+		_manaCost = 20;
+	}
+	else if (choice == 'M')
+	{
+		_abilityDamage = 200;
+		_manaCost = 100;
+	}
+	else
+	{
+		_healAmt = 125;
+		_manaCost = 50;
+	}
+}
 
 Abilities::~Abilities()
 {

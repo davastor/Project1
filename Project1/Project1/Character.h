@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include "Abilities.h"
 using namespace std;
 
 class Character
@@ -14,13 +13,14 @@ private:
 
 
 public:
-	Abilities ability = Abilities();
 	string getName();
 	string getClass();
-	int useAbility(char choice);
+	void addMana(int mana);
 	void restorePlayerMana();
 	void subtractDamage(int damage);
+	void subtractMana(int manaCost);
 	void addHealth(int heal);
+	void buffAttack(int buff);
 	int getHealth();
 	int getMana();
 	int getAttack();
