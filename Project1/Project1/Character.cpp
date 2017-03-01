@@ -1,20 +1,6 @@
 #include "Character.h"
 
-void Character::setStats()
-{
-	if (_class == "Warrior")
-	{
-		_health = 150;
-		_mana = 50;
-		_attack = 20;
-	}
-	else
-	{
-		_health = 80;
-		_mana = 150;
-		_attack = 8;
-	}
-}
+
 
 string Character::getName()
 {
@@ -52,9 +38,17 @@ Character::Character(string name, char prof)
 	if (toupper(prof) == 'W')
 	{
 		_class = "Warrior";
+		_health = 150;
+		_mana = 50;
+		_attack = 20;
 	}
 	else
+	{
 		_class = "Mage";
+		_health = 80;
+		_mana = 150;
+		_attack = 8;
+	}
 }
 
 

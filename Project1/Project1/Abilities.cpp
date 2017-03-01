@@ -2,11 +2,13 @@
 
 
 
-void Abilities::setClass(string prof)
+
+
+void Abilities::damageAbility(int damage, int manaCost)
 {
 }
 
-Abilities::Abilities()
+Abilities::Abilities(string prof)
 {
 }
 

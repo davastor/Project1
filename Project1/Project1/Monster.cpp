@@ -2,30 +2,6 @@
 #include <ctime>
 
 
-void Monster::setMonsterStats()
-{
-	if (_name == "Minotaur")
-	{
-		_health = 250;
-		_attack = 20;
-	}
-	else if (_name == "Goblin")
-	{
-		_health = 60;
-		_attack = 10;
-	}
-	else if (_name == "Wyvern")
-	{
-		_health = 150;
-		_attack = 30;
-	}
-	else
-	{
-		_health = 300;
-		_attack = 40;
-	}
-}
-
 string Monster::getMonsterName()
 {
 	return _name;
@@ -51,12 +27,30 @@ Monster::Monster(int round)
 {
 	if (round != 5)
 	{
-		srand(time(NULL));
-		_name = _monsters[rand()];
+		srand((unsigned int)time(NULL));
+		_name = _monsters[rand()%3];
 	}
 	else
 	{
 		_name = "Elder Lich";
+		_health = 300;
+		_attack = 40;
+	}
+
+	if(_name == "Minotaur")
+	{
+		_health = 250;
+		_attack = 20;
+	}
+	else if (_name == "Goblin")
+	{
+		_health = 60;
+		_attack = 10;
+	}
+	else
+	{
+		_health = 150;
+		_attack = 30;
 	}
 }
 
