@@ -1,17 +1,23 @@
 #pragma once
 #include <string>
-#include "Character.h"
 using namespace std;
 
 class Abilities
 {
 private:
-	int _damage;
-	int _heal;
+	int _damageMulti;
+	int _healAmt;
+	int _manaCost;
+	string _class;
 
 public:
-	void damageAbility(int damage, int manaCost);
-	Abilities(string prof);
+	void setDamageMulti();
+	int getDamageMulti();
+	void setManaCost(char choice);
+	int getManaCost();
+	void setHealAmt(char choice);
+	int getHealAmt();
+	Abilities();
 	~Abilities();
 };
 
