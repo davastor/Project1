@@ -40,16 +40,20 @@ void CharacterCreation(string &name, char &prof)
 
 void Rounds(Character &character)
 {
+	cout << "\nPrepare for battle challenger!  Survive 5 rounds and you shall be victorious!" << endl;
+	cout << "Each round you will be restored 30 mana.  Good luck . . ." << endl;
+
 	bool death = false;
-	for (int round = 5; round <= 5; round++)
+	for (int round = 1; round <= 5; round++)
 	{
+		cout << "\nRound: " << round << endl;
 		Monster monster = Monster(round);
-		cout << "\nA " << monster.getMonsterName() << " appears!\n" << endl;
+		cout << "A " << monster.getMonsterName() << " appears!\n" << endl;
 		death = Combat(monster, character);
 
 		if (death == true)
 		{
-			cout << "You have died! Your soul has been cursed to wander this evil realm forever! " << endl;
+			cout << "You have died! Your soul has been cursed to battle in this arena forever! " << endl;
 			break;
 		}
 	}
@@ -64,9 +68,9 @@ bool Combat(Monster &monster, Character &character)
 	char action;
 	while (monster.getMonsterHealth() > 0)
 	{
-		cout << character.getClass() << ": " <<  setw(5) << character.getName() << setw(16) << monster.getMonsterName() << endl;
-		cout << "Health: " << character.getHealth() << setw(17) << "Health: " << monster.getMonsterHealth() << endl;
-		cout << "Mana: " << character.getMana() << setw(20) << "Attack: " << monster.getMonsterAttack() << endl;
+		cout <<  left << setw(24) << character.getClass() + ": " + character.getName()  << monster.getMonsterName() << endl;
+		cout << "Health: " << left << setw(16) << character.getHealth() << "Health: " << monster.getMonsterHealth() << endl;
+		cout << "Mana: " << left << setw(18) << character.getMana() << "Attack: " << monster.getMonsterAttack() << endl;
  		cout << "Attack: " << character.getAttack() <<  endl;
 
 		cout << "\nWhat will you do? Use a (M)elee attack?  Or use an (A)bility?" << endl;
@@ -96,7 +100,9 @@ bool Combat(Monster &monster, Character &character)
 		}
 	}
 	cout << "\nYou have defeated the " + monster.getMonsterName() << "." << endl;
-	collectLoot(character, monster);
+	if (monster.getMonsterName() != "Elder Lich")
+		collectLoot(character, monster);
+
 	return false;
 }
 
@@ -105,21 +111,21 @@ void collectLoot(Character &character, Monster monster)
 	Items item = Items();
 	string itemName = item.getItemName();
 
-	cout << "\nYou obtained a " << itemName << " from the corpse of the " << monster.getMonsterName() << "." << endl;
+	cout << "\nYou have obtained a " << itemName << " from the corpse of the " << monster.getMonsterName() << "." << endl;
 
 	if (itemName == "Mysterious Amulet")
 	{
-		cout << "You've gained " << item.getAttackBuff() << " attack." << endl;
+		cout << "You have gained " << item.getAttackBuff() << " attack." << endl;
 		character.buffAttack(item.getAttackBuff());
 	}
 	else if (itemName == "Health Potion")
 	{
-		cout << "You've gained " << item.getHealthInc() << " health." << endl;
+		cout << "You have gained " << item.getHealthInc() << " health." << endl;
 		character.addHealth(item.getHealthInc());
 	}
 	else
 	{
-		cout << "You've gained " << item.getManaInc() << " mana." << endl;
+		cout << "You have gained " << item.getManaInc() << " mana." << endl;
 		character.addMana(item.getManaInc());
 	}	
 }
