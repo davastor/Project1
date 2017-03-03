@@ -22,10 +22,8 @@ int main()
 
 	Character character = Character(name, prof);
 	
-
 	Rounds(character);
 
-	system("PAUSE");
 	return 0;
 }
 
@@ -53,13 +51,13 @@ void Rounds(Character &character)
 
 		if (death == true)
 		{
-			cout << "You have died! Your soul has been cursed to battle in this arena forever! " << endl;
+			cout << "You have died! Perhaps you will prevail in your next life! " << endl;
 			break;
 		}
 	}
 
 	if(death == false)
-		cout << "You have conquered the arena! Consider your life a gift. " << endl;
+		cout << "\nCongratulations, challenger!  You have bested the monsters of the arena.  Consider your life a gift to commemorate your victory . . . HA HA HA! " << endl;
 }
 
 bool Combat(Monster &monster, Character &character)
@@ -99,7 +97,8 @@ bool Combat(Monster &monster, Character &character)
 			return true;
 		}
 	}
-	cout << "\nYou have defeated the " + monster.getMonsterName() << "." << endl;
+
+	cout << "\nYou have defeated the " << monster.getMonsterName() << "." << endl;
 	if (monster.getMonsterName() != "Elder Lich")
 		collectLoot(character, monster);
 

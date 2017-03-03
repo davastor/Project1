@@ -33,7 +33,7 @@ Monster::Monster(int round)
 		if (_monsterRand == 0)
 		{
 			_name = "Minotaur";
-			_health = 250;
+			_health = 200;
 			_attack = 20;
 		}
 		else if (_monsterRand == 1)
@@ -59,4 +59,5 @@ Monster::Monster(int round)
 
 Monster::~Monster()
 {
+
 }

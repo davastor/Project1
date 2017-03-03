@@ -1,4 +1,5 @@
 #include "Character.h"
+#include <iostream>
 
 
 string Character::getName()
@@ -78,4 +79,6 @@ Character::Character(string name, char prof)
 
 Character::~Character()
 {
+	cout << "Until next time . . . farewell, challenger!" << endl;
+	system("PAUSE");
 }
